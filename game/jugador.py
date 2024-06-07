@@ -1,6 +1,7 @@
 
 MAX_ENERGY = 100
 MIN_ENERGY = 0
+MIN_=0
 
 
 class Player:
