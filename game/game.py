@@ -23,7 +23,7 @@ class Game:
         if self.__player1.getEnergy() > self.__player2.getEnergy():
             return self.__player1
         elif self.__player2.getEnergy() > self.__player1.getEnergy():
-            print "testeo"
+
             return self.__player2
         else:
             return None
