@@ -1,27 +1,33 @@
+import unittest
 from jugador import Player
 from game import Game
 
-# Creación de jugadores
-p1 = Player(1, 'a')
-p2 = Player(2, 'b')
+class Test(unittest.TestCase):
+    def test1(self):
+        player = Player(1, 'a')
+        self.assertEqual(player.getEnergy(), (MAX_ENERGY + MIN_ENERGY) // 2)
 
-# Creación del juego
-g1 = Game(p1, p2, 3)
+    def test2(self):
+        player = Player(1, 'a')
+        player.boost(-100)
+        self.assertTrue(player.getEnergy() == MIN_ENERGY)
 
-# Mostrar los datos de los jugadores
-print("Datos de los jugadores:")
-print(p1.toString())
-print(p2.toString())
-print()
+    def test3(self):
+        player = Player(1, 'a')
+        player.boost(200)
+        self.assertTrue(player.getEnergy() == MAX_ENERGY)
 
-# Jugar las rondas
-g1.play()
+    def test4(self):
+        p1 = Player(1, 'a')
+        p2 = Player(2, 'b')
+        game = Game(p1, p2, 1)
+        game.play()
+        if p1.getEnergy() > p2.getEnergy():
+            self.assertEqual(game.winner(), p1)
+        elif p2.getEnergy() > p1.getEnergy():
+            self.assertEqual(game.winner(), p2)
+        else:
+            self.assertIsNone(game.winner())
 
-# Determinar el ganador
-winner = g1.winner()
-
-# Mostrar el ganador
-if winner is None:
-    print("El juego ha terminado en empate.")
-else:
-    print(f"El ganador es: {winner.toString()}")
+if __name__ == "__main__":
+    unittest.main()
