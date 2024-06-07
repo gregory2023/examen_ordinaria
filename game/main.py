@@ -1,3 +1,5 @@
+#https://github.com/gregory2023/examen_ordinaria/tree/master
+
 from jugador import Player
 from game import Game
 
