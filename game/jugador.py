@@ -55,9 +55,14 @@ class Player:
 
 if __name__ == "__main__":
     player = Player(1, "Jugador1")
-    print(player.toString())  # Muestra: [1, Jugador1, 50]
-    print(player.boost(30))  # Muestra: (30, 80)
-    print(player.boost(-90))  # Muestra: (-90, 0)
-    print(player.boost(200))  # Muestra: (200, 100)
-    print(player.boost('a'))  # Muestra: (0, 100)
-    print(player.toString())  # Muestra: [1, Jugador1, 100]
+    print(player.toString())
+
+    print(player.boost(30))
+
+    print(player.boost(-90))
+
+    print(player.boost(200))
+
+    print(player.boost('a'))
+
+    print(player.toString())
